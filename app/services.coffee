@@ -39,3 +39,12 @@
       return showError error if error
       decryptData = sjcl.decrypt @password, data
       callback JSON.parse(decryptData)
+
+  checkIfCreated: ->
+    dropbox.readdir "/", (error, entries) =>
+      return showError error if error
+      unless _.include entries, 'password.json'
+        @password = prompt "new password"
+        @write [], ->
+          alert "New password created."
+          window.location.reload()

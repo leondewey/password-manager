@@ -46,6 +46,7 @@
   $scope.logout = ->
     window.location.reload()
 
+  data.checkIfCreated()
   $scope.encrypted = true
   $scope.data = false
 
