@@ -1,11 +1,4 @@
 @Passwords.factory 'data', ->
-  session = new Session
-  # write: (data) ->
-  #   encryptedData = sjcl.encrypt @password, JSON.stringify(data)
-  #   session.write 'encryptedData', encryptedData
-  # read: ->
-  #   data = sjcl.decrypt @password, session.read('encryptedData')
-  #   JSON.parse data
 
   showError = (error) ->
     console.error error if window.console

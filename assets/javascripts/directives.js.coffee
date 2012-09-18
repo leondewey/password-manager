@@ -13,7 +13,7 @@ Passwords.directive('clippy', ($timeout, dateFilter) ->
           <param name="scale" value="noscale" />
           <param NAME="FlashVars" value="text=#{password}">
           <param name="bgcolor" value="transparent">
-          <embed src="/vendor/clippy.swf"
+          <embed src="/assets/clippy.swf"
                  width="110"
                  height="14"
                  name="clippy"
