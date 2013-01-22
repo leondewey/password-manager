@@ -30,7 +30,7 @@
   read: (callback) ->
     dropbox.readFile "password.json", (error, data) =>
       return showError error if error
-      decryptData = sjcl.decrypt @password, data
+      decryptData = sjcl.decrypt @password, JSON.stringify(data)
       callback JSON.parse(decryptData)
 
   checkIfCreated: ->
