@@ -33,12 +33,11 @@
                 <form class="navbar-search pull-left">
                   <input ng-model="search" type="text" class="search-query" placeholder="Search">
                 </form>
-
               </div>
             </div>
 
             <table id="passwords" class="table table-hover">
-              <tr ng-repeat="password in filterdPasswords()" class="password">
+              <tr ng-repeat="password in data | filter:search" class="password">
                 <td class="name">
                   {{password.name}} <i ng-click="delete(password)" class="remove icon-remove"></i>
                 </td>
@@ -52,7 +51,7 @@
               <div class="navbar-inner">
                 <form id="add" class="navbar-form">
                   <input ng-model="addName" type="text" class="input-xlarge" placeholder="Name">
-                  <input ng-model="addPassword" type="password" class="input-xlarge" placeholder="Password">
+                  <input ng-model="addPassword" type="password" class="input-xlarge" placeholder="Password (or it will be generated)">
                   <button ng-click="add()" class="btn">Add</button>
                 </form>
               </div>

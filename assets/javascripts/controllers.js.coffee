@@ -16,23 +16,17 @@
       $scope.encrypted = true
 
   $scope.add = ->
-    $scope.data.push
-      name: $scope.addName
-      password: $scope.addPassword
-    $scope.addName = $scope.addPassword = ''
-    $scope.write()
+    if $scope.addName
+      $scope.data.push
+        name: $scope.addName
+        password: $scope.addPassword || Math.random().toString(36).slice(-15);
+      $scope.addName = $scope.addPassword = ''
+      $scope.write()
 
   $scope.delete = (toDelete) ->
     if confirm "Are you sure you want to delete this?"
       $scope.data = _.reject $scope.data, (pwd) -> pwd == toDelete
       $scope.write()
-
-  $scope.filterdPasswords = ->
-    if $scope.search
-      query = new RegExp "^#{$scope.search}", "i"
-      _.filter $scope.data, (password) -> password.name.search(query) != -1
-    else
-      $scope.data
 
   $scope.setPassword = ->
     data.setPassword $scope.password
